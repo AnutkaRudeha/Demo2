@@ -1,0 +1,18 @@
+name: Getting Started Demo
+jobs:
+  Run image:
+    name: Build
+    runs-on: amazonlinux:2
+    container:
+       image: anutkarudeha/petclinic_app_build:v2
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v1
+
+      - name: Mkdir
+        run: mkrir ./.github/Demo2/artifact
+
+      - name: Run script
+        run: ./.github/Demo2/scripts/test.sh
+        
+       
