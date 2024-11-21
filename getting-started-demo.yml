@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Mkdir
-        run: mkrir ./.github/Demo2/artifact
+        run: mkrir ./Demo2/artifact
 
       - name: Run script
-        run: ./.github/Demo2/scripts/test.sh
+        run: ./Demo2/scripts/test.sh
         
        
