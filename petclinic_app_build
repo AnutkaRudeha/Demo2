@@ -6,7 +6,7 @@ RUN yum update -y && yum install -y git java-17-amazon-corretto \
     && yum clean all && \
     rm -rf /var/cache/yumS
 
-ENTRYPOINT ["/bin/bash", "-c", "/scripts/test.sh"]
+# ENTRYPOINT ["/bin/bash", "-c", "/scripts/test.sh"]
 # CMD ["/bin/bash", "-c", "/scripts/test.sh"]
 
 # docker run -it -v //c/test/demo2/getting-started-app/artifact:/artifact -v //c/test/demo2/getting-started-app/scripts:/scripts anutkarudeha/petclinic_app_build:v1  /bin/bash 

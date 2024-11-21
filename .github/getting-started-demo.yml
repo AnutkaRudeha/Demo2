@@ -11,10 +11,17 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v1
 
-      - name: Mkdir
-        run: mkrir ./.github/artifact
+      - name: build jar 
+        run: |
+             mkrir ./.github/artifact
+             cd /
+             mkdir build_java_project
 
-      - name: Run script
-        run: ./.github/scripts/test.sh
+             cd build_java_project
+             chmod +x mvnw
+             export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
+             ./mvnw package
+
+             cp /build_java_project/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
         
        
