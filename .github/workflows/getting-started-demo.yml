@@ -17,9 +17,6 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v1
 
-      - name: run image
-        run: docker run ./test_build/ -t anutkarudeha/petclinic_app_build:v2
-
       - name: build jar 
         run: |
              mkrir ./.github/artifact
