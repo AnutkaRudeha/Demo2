@@ -1,14 +1,7 @@
 name: Getting Started Demo
 
 on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags' 
+  [workflow_dispatch]
 
 defaults:
   run:
@@ -19,10 +12,13 @@ jobs:
     name: Build
     runs-on: amazonlinux:2
     container:
-       image: "anutkarudeha/petclinic_app_build:v2"
+       image: anutkarudeha/petclinic_app_build:v2
     steps:
       - name: Git Checkout
         uses: actions/checkout@v1
+
+      - name: run image
+        run: docker run ./test_build/ -t anutkarudeha/petclinic_app_build:v2
 
       - name: build jar 
         run: |
