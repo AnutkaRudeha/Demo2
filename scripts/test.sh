@@ -2,8 +2,6 @@
 
 
 mkdir build_java_project
-cd build_java_project
-git clone https://oauth2:${GITTOKEN}@github.com/Rudya93/Demo.git
 
 cd /build_java_project/Demo
 chmod +x mvnw
