@@ -1,4 +1,4 @@
-name: Getting Started Demo
+name: getting-started-demo
 
 on:
   workflow_dispatch:
@@ -10,6 +10,9 @@ on:
       tags:
         description: 'Test scenario tags' 
 
+defaults:
+  run:
+    shell: bash
   
 jobs:
   Run image:
