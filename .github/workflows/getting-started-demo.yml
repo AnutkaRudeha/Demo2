@@ -1,4 +1,4 @@
-name: getting-started-demo
+name: Getting Started Demo
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
     name: Build
     runs-on: amazonlinux:2
     container:
-       image: anutkarudeha/petclinic_app_build:v2
+       image: "anutkarudeha/petclinic_app_build:v2"
     steps:
       - name: Git Checkout
         uses: actions/checkout@v1
