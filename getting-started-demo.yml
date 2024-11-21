@@ -1,4 +1,6 @@
 name: Getting Started Demo
+
+on: push
 jobs:
   Run image:
     name: Build
