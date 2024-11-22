@@ -10,7 +10,7 @@ defaults:
 jobs:
   run_image:
     name: Build
-    runs-on: amazonlinux:2
+    runs-on: ubuntu-latest
     container:
        image: anutkarudeha/petclinic_app_build:v2
     steps:
