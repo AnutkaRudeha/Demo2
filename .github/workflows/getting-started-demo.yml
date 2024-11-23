@@ -2,22 +2,15 @@ name: Getting Started Demo
 
 on:
   [workflow_dispatch]
-
-defaults:
-  run:
-    shell: bash
   
 jobs:
   run_image:
-    name: Build
+    name: Run image
     runs-on: ubuntu-latest
     container:
        image: anutkarudeha/petclinic_app_build:v2
     steps:
-      - name: Git Checkout
-        uses: actions/checkout@v4
-
-      - name: build jar 
+      - name: Run the Docker image 
         run: |
              mkrir ./.github/artifact
              cd /
@@ -29,5 +22,4 @@ jobs:
              ./mvnw package
 
              cp /build_java_project/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
-        
-       
+
