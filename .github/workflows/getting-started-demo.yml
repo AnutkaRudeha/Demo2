@@ -12,14 +12,12 @@ jobs:
     steps:
       - name: Run the Docker image 
         run: |
-             mkrir ./.github/artifact
-             cd /
-             mkdir build_java_project
+            cd ./.github/artifact
+            chmod +x mvnw
+            export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
+            ./mvnw package
 
-             cd build_java_project
-             chmod +x mvnw
-             export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
-             ./mvnw package
-
-             cp /build_java_project/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
+#  docker run \
+#        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+#        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
