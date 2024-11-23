@@ -15,7 +15,9 @@ jobs:
        image: anutkarudeha/petclinic_app_build:v2
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+          with:
+            sparse-checkout: . 
 
       - name: build jar 
         run: |
