@@ -16,10 +16,6 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
-          with:
-            sparse-checkout: |
-              .github
-              src
 
       - name: build jar 
         run: |
