@@ -13,6 +13,7 @@ jobs:
       - name: Run the Docker image 
         run: |
           pwd
+          cd /__w/Demo2
           chmod +x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
