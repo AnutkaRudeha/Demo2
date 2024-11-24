@@ -13,10 +13,11 @@ jobs:
       - name: Run the Docker image 
         run: |
           pwd
-          cd ${{ github.workspace }}/artifact
           chmod +x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
+
+          cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar ${{ github.workspace }}/artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
