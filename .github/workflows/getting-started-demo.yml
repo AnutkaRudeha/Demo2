@@ -12,10 +12,11 @@ jobs:
     steps:
       - name: Run the Docker image 
         run: |
-            cd artifact
-            chmod +x mvnw
-            export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
-            ./mvnw package
+          pwd
+          cd artifact
+          chmod +x mvnw
+          export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
+          ./mvnw package
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
