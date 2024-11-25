@@ -21,7 +21,8 @@ jobs:
         run: |
           pwd
           ls
-          git update-index --chmod=+x mvnw
+          git update-index 
+          --chmod=+x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
