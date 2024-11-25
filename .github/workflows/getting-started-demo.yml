@@ -8,12 +8,11 @@ jobs:
     name: Run image
     runs-on: ubuntu-latest
     container:
-       image: anutkarudeha/petclinic_app_build:v2
+       image: anutkarudeha/petclinic_app_build:v3
     steps:
       - name: Fix Checkout
         run: |
           ldd --version
-          pip install dgl -f https://data.dgl.ai/wheels-internal/torch-2.3/cu121/repo.html
 
       - name: Git Checkout
         uses: actions/checkout@v4

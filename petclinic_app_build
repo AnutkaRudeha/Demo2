@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2023
 # docker build -t anutkarudeha/petclinic-app:v1 .
 # docker build -t anutkarudeha/petclinic_app_build:v1 -f petclinic_app_build .
 
@@ -9,4 +9,4 @@ RUN yum update -y && yum install -y git java-17-amazon-corretto \
 # ENTRYPOINT ["/bin/bash", "-c", "/scripts/test.sh"]
 # CMD ["/bin/bash", "-c", "/scripts/test.sh"]
 
-# docker run -it -v //c/test/demo2/getting-started-app/artifact:/artifact -v //c/test/demo2/getting-started-app/scripts:/scripts anutkarudeha/petclinic_app_build:v1  /bin/bash 
+# docker run -it -v //c/test/test/Demo2/artifact:/artifact -v //c/test/test/Demo2/scripts:/scripts anutkarudeha/petclinic_app_build:v1  /bin/bash 
