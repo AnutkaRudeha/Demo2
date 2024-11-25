@@ -21,9 +21,8 @@ jobs:
         run: |
           pwd
           ls
-          icacls.exe mvnw /reset
-          icacls.exe mvnw /grant:r "$($env.username):(r)"
-          icacls.exe mvnw /inheritance:r
+          git config --global --add safe.directory /__w/Demo2/Demo2
+          git update-index --chmod=+x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
