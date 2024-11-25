@@ -21,7 +21,9 @@ jobs:
         run: |
           pwd
           ls
-          icacls mvnw
+          icacls.exe mvnw /reset
+          icacls.exe mvnw /grant:r "$($env.username):(r)"
+          icacls.exe mvnw /inheritance:r
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
