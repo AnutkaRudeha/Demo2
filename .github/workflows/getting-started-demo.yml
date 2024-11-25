@@ -21,9 +21,6 @@ jobs:
         run: |
           pwd
           ls
-          cd /__w/Demo2
-          ls
-          chmod +x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
