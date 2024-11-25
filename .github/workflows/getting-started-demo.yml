@@ -10,10 +10,14 @@ jobs:
     container:
        image: anutkarudeha/petclinic_app_build:v2
     steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
       - name: Run the Docker image 
         run: |
           pwd
           cd /__w/Demo2
+          ls
           chmod +x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
