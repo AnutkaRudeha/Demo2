@@ -21,7 +21,7 @@ jobs:
         run: |
           pwd
           ls
-          git config --global --add safe.directory /__w/Demo2/Demo2
+          git config --global --add safe.directory '*'
           git update-index --chmod=+x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
