@@ -20,6 +20,7 @@ jobs:
       - name: Run the Docker image 
         run: |
           pwd
+          ls
           cd /__w/Demo2
           ls
           chmod +x mvnw
