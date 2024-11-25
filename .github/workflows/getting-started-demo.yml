@@ -13,9 +13,10 @@ jobs:
       - name: Fix Checkout
         run: |
           ldd --version
+          pip install dgl -f https://data.dgl.ai/wheels-internal/torch-2.3/cu121/repo.html
 
       - name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run the Docker image 
         run: |
