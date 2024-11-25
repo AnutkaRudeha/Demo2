@@ -21,9 +21,6 @@ jobs:
         run: |
           pwd
           ls
-          takeown /f /__w/Demo2/Demo2 /r /d y
-# git config --global --add safe.directory /__w/Demo2/Demo2
-          git update-index --chmod=+x mvnw
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
