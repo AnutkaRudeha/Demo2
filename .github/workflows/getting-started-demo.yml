@@ -10,10 +10,10 @@ jobs:
     container:
        image: anutkarudeha/petclinic_app_build:v2
     steps:
-      - name: Check v
+      - name: Fix Checkout
         run: |
-          ls -lh /lib/x86_64-linux-gnu/libm.so.6
-          
+          ldd --version
+
       - name: Git Checkout
         uses: actions/checkout@v3
 
