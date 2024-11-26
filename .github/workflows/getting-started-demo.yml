@@ -24,7 +24,7 @@ jobs:
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
-          ls ${{ github.workspace }}/artifact
+          ls ${{ github.workspace }}
           cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar ${{ github.workspace }}/artifact
 
 #  docker run \
