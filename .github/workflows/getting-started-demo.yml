@@ -26,9 +26,7 @@ jobs:
 
           pwd
           ls -la
-          cd artifact
-          ls -la
-          cp ${{ github.workspace }}/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /__w/Demo2/Demo2/artifact
+          cp /target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
