@@ -26,8 +26,8 @@ jobs:
 
           pwd
           ls -la
-          find artifact
-          ls ${{ github.workspace }}
+          cd artifact
+          ls -la
           cp ${{ github.workspace }}/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /__w/Demo2/Demo2/artifact
 
 #  docker run \
