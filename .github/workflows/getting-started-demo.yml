@@ -10,6 +10,7 @@ jobs:
     container:
        image: anutkarudeha/petclinic_app_build:v3
     steps:
+    
       - name: Fix Checkout
         run: |
           ldd --version
@@ -21,7 +22,6 @@ jobs:
         run: |
           pwd
           ls
-          java --version
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
 
