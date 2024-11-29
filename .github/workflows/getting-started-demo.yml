@@ -31,8 +31,8 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: path/to/artifact
+          name: artifact
+          path: ${{ github.workspace }}/artifact
 
   build_image:
     name: Build Image
@@ -40,9 +40,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: my-artifact
-          path: path/to/artifact
-      - run: ls path/to/artifact
+          name: artifact
+          path: ${{ github.workspace }}/artifact
+      - run: ls ${{ github.workspace }}/artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
