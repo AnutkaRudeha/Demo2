@@ -29,20 +29,20 @@ jobs:
           ls -la
           cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: /artifact
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: artifact
+      #     path: /artifact
 
-  build_image:
-    name: Build Image
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: artifact
-          path: ${{ github.workspace }}/artifact
-      - run: ls ${{ github.workspace }}/artifact
+  # build_image:
+  #   name: Build Image
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: artifact
+  #         path: ${{ github.workspace }}/artifact
+  #     - run: ls ${{ github.workspace }}/artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
