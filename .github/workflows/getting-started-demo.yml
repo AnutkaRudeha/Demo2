@@ -27,12 +27,12 @@ jobs:
 
           pwd
           ls -la
-          cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar artifact
+          cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
 
       - uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: artifact
+          path: /artifact
 
   build_image:
     name: Build Image
