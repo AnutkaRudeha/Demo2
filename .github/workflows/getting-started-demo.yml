@@ -27,13 +27,12 @@ jobs:
 
           pwd
           ls -la
-          mkdir -p ${{ github.workspace }}/artifact
-          cp ${{ github.workspace }}/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar ${{ github.workspace }}/artifact
+          cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar artifact
 
       - uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: ${{ github.workspace }}/artifact
+          path: artifact
 
   build_image:
     name: Build Image
