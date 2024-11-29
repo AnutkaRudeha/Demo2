@@ -33,6 +33,7 @@ jobs:
           path: target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
 
   build_image:
+    needs: run_image
     name: Build Image
     runs-on: ubuntu-latest
     steps:
