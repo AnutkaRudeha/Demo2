@@ -41,7 +41,10 @@ jobs:
         with:
           name: artifact
           # path: target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
-      - run: ls /home/runner/work/Demo2/Demo2/artifact
+      - run: |
+          pwd
+          ls
+          ls /home/runner/work/Demo2/Demo2/artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
