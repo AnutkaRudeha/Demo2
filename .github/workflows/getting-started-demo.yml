@@ -29,6 +29,22 @@ jobs:
           mkdir -p ${{ github.workspace }}/artifact
           cp ${{ github.workspace }}/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar ${{ github.workspace }}/artifact
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: path/to/artifact
+
+  create_image:
+    name: Create Image
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/download-artifact@v4
+          with:
+            name: my-artifact
+            path: path/to/artifact
+        - run: ls path/to/artifact
+
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
 #        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
