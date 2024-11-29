@@ -34,15 +34,15 @@ jobs:
           name: my-artifact
           path: path/to/artifact
 
-  create_image:
-    name: Create Image
+  build_image:
+    name: Build Image
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/download-artifact@v4
-          with:
-            name: my-artifact
-            path: path/to/artifact
-        - run: ls path/to/artifact
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: my-artifact
+          path: path/to/artifact
+      - run: ls path/to/artifact
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
