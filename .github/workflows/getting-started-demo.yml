@@ -10,7 +10,6 @@ jobs:
     container:
        image: anutkarudeha/petclinic_app_build:v3
     steps:
-    
       - name: Fix Checkout
         run: |
           ldd --version
