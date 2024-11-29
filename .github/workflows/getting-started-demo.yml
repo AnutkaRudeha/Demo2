@@ -13,7 +13,6 @@ jobs:
       - name: Fix Checkout
         run: |
           ldd --version
-
       - name: Git Checkout
         uses: actions/checkout@v4
 
@@ -23,7 +22,6 @@ jobs:
           ls
           export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
           ./mvnw package
-
           pwd
           ls -la
           cp target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
