@@ -29,8 +29,13 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: artifact
+          name: petclinic_app_run
           path: target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: petclinic_app_run
 
   build_image:
     needs: run_image
@@ -45,10 +50,13 @@ jobs:
           pwd
           ls
 
+      - uses: actions/download-artifact@v4
+        with:
+          name: petclinic_app_run
       - name: Build image
         run: |
           pwd
-          docker build -t anutkarudeha/petclinic_app_run:v1 -f ${{ github.workspace }}/petclinic_app_run .
+          docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
