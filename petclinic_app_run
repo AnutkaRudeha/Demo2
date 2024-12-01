@@ -11,8 +11,6 @@ RUN yum -y install python3 \
     python3-pip \
     shadow-utils
 
-RUN pwd \
-    ls
 RUN mkdir run_java_project
 COPY spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /run_java_project
 
