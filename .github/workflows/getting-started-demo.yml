@@ -5,7 +5,7 @@ on:
   
 jobs:
   run_image:
-    name: Run image
+    name: Run petclinic_app_build Image
     runs-on: ubuntu-latest
     container:
        image: anutkarudeha/petclinic_app_build:v3
@@ -39,7 +39,7 @@ jobs:
 
   build_image:
     needs: run_image
-    name: Build Image
+    name: Build petclinic_app_run Image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
