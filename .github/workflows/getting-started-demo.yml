@@ -47,7 +47,8 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t anutkarudeha/petclinic_app_run:v1 -f /__w/Demo2/Demo2/petclinic_app_run .
+          pwd
+          docker build -t anutkarudeha/petclinic_app_run:v1 -f ${{ github.workspace }}/petclinic_app_run .
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \

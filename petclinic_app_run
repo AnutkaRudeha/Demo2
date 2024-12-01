@@ -11,12 +11,12 @@ RUN yum -y install python3 \
     python3-pip \
     shadow-utils
 
-RUN mkdir run_java_project
-COPY *.jar /run_java_project
+RUN mkdir /home/runner/work/Demo2/Demo2/run_java_project
+COPY /home/runner/work/Demo2/Demo2/*.jar /run_java_project
 
 RUN echo -e $APPUSER 
 RUN useradd $APPUSER && \
-    chown $APPUSER /run_java_project/*.jar 
+    chown $APPUSER /home/runner/work/Demo2/Demo2/run_java_project/*.jar 
 
 USER $APPUSER
 WORKDIR /home/$APPUSER
