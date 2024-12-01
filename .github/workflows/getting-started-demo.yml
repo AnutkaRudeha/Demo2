@@ -45,6 +45,10 @@ jobs:
           pwd
           ls
 
+      - name: Build image
+        run: |
+          docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
+
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
 #        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
