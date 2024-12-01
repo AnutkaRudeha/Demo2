@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2023
 
 ARG APPUSER=app_user
 ENV APP_USER=$APPUSER
@@ -12,7 +12,7 @@ RUN yum -y install python3 \
     shadow-utils
 
 RUN mkdir run_java_project
-COPY /artifact/*.jar /run_java_project
+COPY *.jar /run_java_project
 
 RUN echo -e $APPUSER 
 RUN useradd $APPUSER && \
