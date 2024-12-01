@@ -26,10 +26,6 @@ jobs:
 
           pwd
           ls -la
-          mkdir petclinic_app
-          cp petclinic_app_run petclinic_app
-          cp spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar petclinic_app
-          ls petclinic_app
 
       - uses: actions/upload-artifact@v4
         with:
