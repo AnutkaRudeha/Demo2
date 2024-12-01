@@ -12,14 +12,14 @@ RUN yum -y install python3 \
     shadow-utils
 
 RUN mkdir run_java_project
-COPY spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /run_java_project
+COPY ./spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /run_java_project
 
 RUN echo -e $APPUSER 
 RUN useradd $APPUSER && \
-    chown $APPUSER spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar 
+    chown $APPUSER /run_java_project/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar 
 
 USER $APPUSER
-WORKDIR /home/$APPUSER
+WORKDIR /run_java_project
 
 EXPOSE 8080
-# ENTRYPOINT ["java","-jar","/run_java_project/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/run_java_project/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar"]
