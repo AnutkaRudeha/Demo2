@@ -58,6 +58,8 @@ jobs:
           pwd
           ls
           docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v1
+        
 
   run_apprun_image:
     needs: build_image
@@ -66,7 +68,7 @@ jobs:
     steps: 
       - name: Run image
         run: |
-          sudo chmod 666 /var/run/docker.sock
+          sudo chmod 777 /var/run/docker.sock
           docker run anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
