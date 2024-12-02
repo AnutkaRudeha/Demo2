@@ -66,7 +66,7 @@ jobs:
     steps: 
       - name: Run image
         run: |
-          docker run --net bridge --ip 172.17.0.2 anutkarudeha/petclinic_app_run:v1
+          docker run anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
