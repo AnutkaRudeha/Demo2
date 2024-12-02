@@ -66,6 +66,8 @@ jobs:
     steps: 
       - name: Run image
         run: |
+          sudo groupadd docker
+          sudo usermod -aG docker runner-git
           docker run anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
