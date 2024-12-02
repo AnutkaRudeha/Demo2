@@ -59,6 +59,15 @@ jobs:
           ls
           docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
 
+  run_apprun_image:
+    needs: build_image
+    name: Run petclinic_app_run Image
+    runs-on: self-hosted
+    steps: 
+      - name: Run image
+        run: |
+          docker run --net bridge --ip 172.17.0.2 --env-file env.list anutkarudeha/petclinic_app_run:v1
+
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
 #        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
