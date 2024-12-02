@@ -75,7 +75,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --net bridge --ip 172.17.0.3 anutkarudeha/petclinic_app_run:v1
+          docker run --net bridge --ip 172.17.0.3 -p 8080:8080 -p 50000:50000  anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
