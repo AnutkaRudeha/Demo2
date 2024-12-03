@@ -78,7 +78,6 @@ jobs:
           docker rm petclinic_app
           docker run --name petclinic_app -d -p 80:80 anutkarudeha/petclinic_app_run:v1
           docker images -a
-          docker logs -f --until=5s petclinic_app_run
 
 # docker rm petclinic_app
 #  docker run \
