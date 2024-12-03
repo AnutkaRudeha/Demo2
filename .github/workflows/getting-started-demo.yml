@@ -75,7 +75,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker rm petclinic_app
+        # docker rm petclinic_app
           docker run --name petclinic_app -d anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
