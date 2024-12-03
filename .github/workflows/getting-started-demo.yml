@@ -76,7 +76,7 @@ jobs:
         run: |
           sudo chmod 777 /var/run/docker.sock
           docker rm petclinic_app
-          docker run --name petclinic_app -d --ip 18.170.64.57 -p 5000:5000 anutkarudeha/petclinic_app_run:v1
+          docker run --name petclinic_app -d anutkarudeha/petclinic_app_run:v1
 
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
