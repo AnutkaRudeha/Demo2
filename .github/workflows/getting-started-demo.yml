@@ -78,9 +78,6 @@ jobs:
           docker rm petclinic_app
           docker run --name petclinic_app -d -p 80:80 anutkarudeha/petclinic_app_run:v1
           docker images -a
-          telnet mypublicip
-          sudo uwf status
-          sudo iptables -L
 
 # docker rm petclinic_app
 #  docker run \
