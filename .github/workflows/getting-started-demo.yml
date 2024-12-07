@@ -37,6 +37,16 @@ jobs:
           name: artifact
           path: petclinic_app_run
 
+      - uses: actions/upload-artifact@v5
+        with:
+          name: petclinic_db
+          path: target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
+
+      - uses: actions/upload-artifact@v5
+        with:
+          name: artifact1
+          path: petclinic_db
+
   build_image:
     needs: run_image
     name: Build petclinic_app_run Image
@@ -71,6 +81,18 @@ jobs:
     name: Run petclinic_db Image
     runs-on: [self-hosted, linux, x64]
     steps: 
+      - uses: actions/download-artifact@v5
+        with:
+          name: artifact1
+          # path: target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
+      - run: |
+          pwd
+          ls
+      
+      - uses: actions/download-artifact@v5
+        with:
+          name: petclinic_db
+
       - name: Run dbimage
         run: |
           sudo chmod 777 /var/run/docker.sock
