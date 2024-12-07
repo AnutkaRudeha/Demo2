@@ -95,7 +95,7 @@ jobs:
           docker image push anutkarudeha/petclinic_db:v1        
 
   run_apprun_image:
-    needs: build_image
+    needs: build_dbimage
     name: Build petclinic_app_run Image
     runs-on: [self-hosted, linux, x64]
     steps: 
