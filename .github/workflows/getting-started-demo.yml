@@ -87,7 +87,7 @@ jobs:
           ls
           sudo chmod 777 /var/run/docker.sock
           docker rm petclinic_db
-          docker run --name petclinic_db --ip 18.169.237.3 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=18.169.237.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/db_app --env APP_USER=app_user --env MYSQL_ROOT_PASSWORD=1245 --net mynet123 -d -i mysql:8.4.3
+          docker run --name petclinic_db --net mynet12 --ip 18.169.237.3 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=18.169.237.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/db_app --env APP_USER=app_user --env MYSQL_ROOT_PASSWORD=1245 -d -i mysql:8.4.3
           docker images -a
           docker ps       
 
@@ -102,6 +102,7 @@ jobs:
           docker stop petclinic_app
           docker rm petclinic_app
           docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v1
+          docker network connect mynet12 petclinic_app
           docker images -a
           docker ps
 
