@@ -73,8 +73,8 @@ jobs:
         run: |
           pwd
           ls
-          docker build -t anutkarudeha/petclinic_app_run:v2 -f petclinic_app_run .
-          docker image push anutkarudeha/petclinic_app_run:v2
+          docker build -t anutkarudeha/petclinic_app_run:v3 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v3
 
   run_dbimage:
     needs: build_image
@@ -98,7 +98,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --name petclinic_app -d -p 8080:8080 -i anutkarudeha/petclinic_app_run:v2
+          docker run --name petclinic_app -d -p 8080:8080 -i anutkarudeha/petclinic_app_run:v3
           docker network connect mynet12 petclinic_app
           docker images -a
           docker ps
