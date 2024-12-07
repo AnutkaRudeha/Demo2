@@ -65,11 +65,38 @@ jobs:
           ls
           docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
           docker image push anutkarudeha/petclinic_app_run:v1
-        
+
+  build_dbimage:
+    needs: Build petclinic_app_run Image
+    name: Build petclinic_db Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
+      - run: |
+          pwd
+          ls
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: petclinic_db
+      - name: Build image
+        run: |
+          pwd
+          ls
+          docker run --net mynet123 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=192.168.33.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://192.168.33.3:3306/db_app --env APP_USER=app_user -it anutkarudeha/petclinic_db:v1
+          docker image push anutkarudeha/petclinic_db:v1        
 
   run_apprun_image:
     needs: build_image
-    name: Run petclinic_app_run Image
+    name: Build petclinic_db Image
     runs-on: [self-hosted, linux, x64]
     steps: 
       - name: Run image

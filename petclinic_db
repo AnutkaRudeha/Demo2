@@ -8,6 +8,7 @@ ENV MYSQL_URL=jdbc:mysql://$DBHOST:3306/$DBNAME
 
 ENTRYPOINT ["java","-Dspring.profiles.active=mysql","-jar","/run_java_project/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar"]
 
-# docker run --name petclinic_db -v //c/test/demo2/getting-started-app/datadir:/var/lib/mysql --env-file env.list --net bridge --ip 172.17.0.3 -d mysql:8.4.3
+# docker run --name petclinic_db --env-file env.list --net bridge --ip 172.17.0.3 -d mysql:8.4.3
 # docker build -t anutkarudeha/petclinic_db:v1 -f petclinic_db .
 # docker run --net mynet123 --ip 192.168.0.1 --env-file env.list -it anutkarudeha/petclinic_db:v1 bash
+# 
