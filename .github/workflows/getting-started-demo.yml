@@ -86,8 +86,6 @@ jobs:
           pwd
           ls
           sudo chmod 777 /var/run/docker.sock
-          docker stop petclinic_db
-          docker rm petclinic_db
           docker run --name petclinic_db --net mynet12 --ip 18.169.237.3 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=18.169.237.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/db_app --env APP_USER=app_user --env MYSQL_ROOT_PASSWORD=1245 -d -i mysql:8.4.3
           docker images -a
           docker ps       
@@ -105,6 +103,8 @@ jobs:
           docker images -a
           docker ps
 
+# docker stop petclinic_db
+# docker rm petclinic_db
 # docker rm petclinic_app
 #  docker run \
 #        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
