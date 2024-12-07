@@ -73,8 +73,8 @@ jobs:
         run: |
           pwd
           ls
-          docker build -t anutkarudeha/petclinic_app_run:v1 -f petclinic_app_run .
-          docker image push anutkarudeha/petclinic_app_run:v1
+          docker build -t anutkarudeha/petclinic_app_run:v1.1 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v1.1
 
   run_dbimage:
     needs: build_image
