@@ -88,13 +88,13 @@ jobs:
       - run: |
           pwd
           ls
-      
       - uses: actions/download-artifact@v4
         with:
           name: petclinic_db
-
       - name: Run dbimage
         run: |
+          pwd
+          ls
           sudo chmod 777 /var/run/docker.sock
           docker run --net mynet123 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=192.168.33.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://192.168.33.3:3306/db_app --env APP_USER=app_user -i anutkarudeha/petclinic_db:v1
           docker images -a
