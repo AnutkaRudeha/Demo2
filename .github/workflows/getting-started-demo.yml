@@ -84,7 +84,7 @@ jobs:
           docker run --net mynet123 --env MYSQL_USER=user --env MYSQL_PASS=1234567890 --env MYSQL_IP=192.168.33.3 --env MYSQL_NAME=db_app --env MYSQL_URL=jdbc:mysql://192.168.33.3:3306/db_app --env APP_USER=app_user -it anutkarudeha/petclinic_db:v1
           docker image push anutkarudeha/petclinic_db:v1        
 
-    run_apprun_image:
+  run_apprun_image:
     needs: build_dbimage
     name: Run petclinic_app_run Image
     runs-on: [self-hosted, linux, x64]
