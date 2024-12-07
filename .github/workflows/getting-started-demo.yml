@@ -98,7 +98,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v2
+          docker run --name petclinic_app -d -p 8080:8080 -i anutkarudeha/petclinic_app_run:v2
           docker network connect mynet12 petclinic_app
           docker images -a
           docker ps
