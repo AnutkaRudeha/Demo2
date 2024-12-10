@@ -99,7 +99,7 @@ jobs:
         run: |
           sudo chmod 777 /var/run/docker.sock
           docker run --name petclinic_app --net mynet12 -d -p 8080:8080 anutkarudeha/petclinic_app_run:v4
-          mysql -u user -p1234567890 -h 18.169.237.3 db_app 
+          mysql -u user -p1234567890 -h 18.169.237.3 db_app
           docker images -a
           docker ps
 
