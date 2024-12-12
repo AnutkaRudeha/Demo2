@@ -103,7 +103,7 @@ jobs:
         run: |
           sudo chmod 777 /var/run/docker.sock
           docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v2.5
-          mysql -u petclinic -p1234567890 -h "18.169.186.26" petclinic
+          mysql -u petclinic -p1234567890 -h "18.169.241.222" petclinic
           docker images -a
           docker ps
 
