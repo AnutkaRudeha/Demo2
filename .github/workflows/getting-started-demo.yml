@@ -73,8 +73,8 @@ jobs:
         run: |
           pwd
           ls
-          docker build -t anutkarudeha/petclinic_app_run:v2.4 -f petclinic_app_run .
-          docker image push anutkarudeha/petclinic_app_run:v2.4
+          docker build -t anutkarudeha/petclinic_app_run:v2.5 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v2.5
 
   run_dbimage:
     needs: build_image
@@ -90,22 +90,22 @@ jobs:
           docker images -a
           docker ps       
 
-  # run_apprun_image:
-  #   needs: run_dbimage
-  #   name: Run petclinic_app_run Image
-  #   runs-on: [self-hosted, linux, x64]
-  #   steps: 
-  #     - name: Sleep for 0,5 minutes
-  #       run: sleep 30s
-  #       shell: bash
+  run_apprun_image:
+    needs: run_dbimage
+    name: Run petclinic_app_run Image
+    runs-on: [self-hosted, linux, x64]
+    steps: 
+      - name: Sleep for 0,5 minutes
+        run: sleep 30s
+        shell: bash
 
-  #     - name: Run image
-  #       run: |
-  #         sudo chmod 777 /var/run/docker.sock
-  #         docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v2.1
-  #         mysql -u petclinic -p1234567890 -h "18.169.186.26" petclinic
-  #         docker images -a
-  #         docker ps
+      - name: Run image
+        run: |
+          sudo chmod 777 /var/run/docker.sock
+          docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v2.5
+          mysql -u petclinic -p1234567890 -h "18.169.186.26" petclinic
+          docker images -a
+          docker ps
 
 # docker stop petclinic_db
 # docker rm petclinic_db
