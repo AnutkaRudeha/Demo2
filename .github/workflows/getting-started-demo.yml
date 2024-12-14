@@ -73,8 +73,8 @@ jobs:
         run: |
           pwd
           ls
-          docker build -t anutkarudeha/petclinic_app_run:v2.5 -f petclinic_app_run .
-          docker image push anutkarudeha/petclinic_app_run:v2.5
+          docker build -t anutkarudeha/petclinic_app_run:v2.0.1 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v2.0.1
 
   run_dbimage:
     needs: build_image
@@ -102,7 +102,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --name petclinic_app -d -p 8080:8080 anutkarudeha/petclinic_app_run:v2.5
+          docker run --name petclinic_app -p 8080:8080 -d anutkarudeha/petclinic_app_run:v2.0.1
           mysql -u petclinic -p1234567890 -h "18.134.12.163" petclinic
           docker images -a
           docker ps
