@@ -91,7 +91,7 @@ jobs:
           docker ps       
 
   run_apprun_image:
-    needs: build_image
+    needs: run_dbimage
     name: Run petclinic_app_run Image
     runs-on: [self-hosted, linux, x64]
     steps: 
