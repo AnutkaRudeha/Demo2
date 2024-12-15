@@ -1,4 +1,5 @@
-FROM amazonlinux:2023
+# FROM amazonlinux:2023
+FROM java:8-jdk-alpine
 
 ARG APPUSER=app_user
 ENV APP_USER=$APPUSER

@@ -73,25 +73,25 @@ jobs:
         run: |
           pwd
           ls
-          docker build -t anutkarudeha/petclinic_app_run:v2.0.2 -f petclinic_app_run .
-          docker image push anutkarudeha/petclinic_app_run:v2.0.2
+          docker build -t anutkarudeha/petclinic_app_run:v1.0.0 -f petclinic_app_run .
+          docker image push anutkarudeha/petclinic_app_run:v1.0.0
 
-  run_dbimage:
-    needs: build_image
-    name: Run petclinic_db Image
-    runs-on: [self-hosted, linux, x64]
-    steps:
-      - name: Run dbimage
-        run: |
-          pwd
-          ls
-          sudo chmod 777 /var/run/docker.sock
-          docker run --name petclinic_db -p 3306:3306 --env MYSQL_USER=petclinic --env MYSQL_ROOT_PASSWORD=1234567890 --env MYSQL_DATABASE=petclinic --env MYSQL_PASSWORD=1234567890 --net mynet12 --ip 18.169.237.3 -d mysql:8.4.3
-          docker images -a
-          docker ps       
+  # run_dbimage:
+  #   needs: build_image
+  #   name: Run petclinic_db Image
+  #   runs-on: [self-hosted, linux, x64]
+  #   steps:
+  #     - name: Run dbimage
+  #       run: |
+  #         pwd
+  #         ls
+  #         sudo chmod 777 /var/run/docker.sock
+  #         docker run --name petclinic_db -p 3306:3306 --env MYSQL_USER=petclinic --env MYSQL_ROOT_PASSWORD=1234567890 --env MYSQL_DATABASE=petclinic --env MYSQL_PASSWORD=1234567890 --net mynet12 --ip 18.169.237.3 -d mysql:8.4.3
+  #         docker images -a
+  #         docker ps       
 
   run_apprun_image:
-    needs: run_dbimage
+    needs: build_image
     name: Run petclinic_app_run Image
     runs-on: [self-hosted, linux, x64]
     steps: 
@@ -102,7 +102,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=petclinic_db --env MYSQL_PORT=3306:3306 --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v2.0.2
+          docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=petclinic_db --env MYSQL_PORT=3306:3306 --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v1.0.0
           docker images -a
           docker ps
 
