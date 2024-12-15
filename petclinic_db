@@ -16,6 +16,3 @@ ENTRYPOINT ["java","-Dspring.profiles.active=mysql","-jar","/run_java_project/sp
 # docker run --name petclinic_db --net mynet12 --ip 18.169.237.3 -p 3306:3306 --env MYSQL_USER=user --env MYSQL_PASSWORD=1234567890 --env MYSQL_IP=18.169.237.3 --env MYSQL_NAME=db_app --env MYSQL_ROOT_PASSWORD=1245 -d mysql:8.4.3
 # docker run --name petclinic_db --net mynet12 --ip 18.169.237.3 -p 3306:3306 --env MARIADB_USER=user --env MARIADB_DATABASE=db_app --env MARIADB_ROOT_PASSWORD=12345 -d mysql:8.0.0
 # docker run --name petclinic_db -p 3306:3306 --env MYSQL_USER=petclinic --env MYSQL_ROOT_PASSWORD=1234567890 --env MYSQL_DATABASE=petclinic --env MYSQL_PASSWORD=1234567890 --net mynet12 --ip 18.169.237.3 -d mysql:8.4.3
-
-
-#
