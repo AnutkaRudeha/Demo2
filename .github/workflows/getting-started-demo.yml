@@ -102,7 +102,7 @@ jobs:
       - name: Run image
         run: |
           sudo chmod 777 /var/run/docker.sock
-          docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=18.169.237.3 --env MYSQL_PORT=3306:3306 --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v1.5
+          docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=18.169.237.3 --env MYSQL_PORT=3306:3306 --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/petclinic --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v1.5
           docker images -a
           docker ps
 
