@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ARG APPUSER=petclinic 
 ENV APP_USER=$APPUSER
 
-RUN apt update -y && apt install -y openjdk-11-jre && apt install -y mysql-client && \
+RUN apt update -y && apt install -y openjdk-11-jre && apt install -y mariadb-server && \
     apt clean all && \
     rm -rf /var/cache/apt
 
