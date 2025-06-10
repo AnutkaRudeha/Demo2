@@ -76,35 +76,35 @@ jobs:
           docker build -t anutkarudeha/petclinic_app_run:v1.6 -f petclinic_app_run .
           docker image push anutkarudeha/petclinic_app_run:v1.6
 
-  run_dbimage:
-    needs: build_image
-    name: Run petclinic_db Image
-    runs-on: [self-hosted, linux, x64]
-    steps:
-      - name: Run dbimage
-        run: |
-          pwd
-          ls
-          sudo chmod 777 /var/run/docker.sock
-          docker run --name petclinic_db -p 3306:3306 --env MYSQL_USER=petclinic --env MYSQL_ROOT_PASSWORD=1234567890 --env MYSQL_DATABASE=petclinic --env MYSQL_PASSWORD=1234567890 --net mynet12 --ip 18.169.237.3 -d mysql:8.4.3
-          docker images -a
-          docker ps       
+  # run_dbimage:
+  #   needs: build_image
+  #   name: Run petclinic_db Image
+  #   runs-on: [self-hosted, linux, x64]
+  #   steps:
+  #     - name: Run dbimage
+  #       run: |
+  #         pwd
+  #         ls
+  #         sudo chmod 777 /var/run/docker.sock
+  #         docker run --name petclinic_db -p 3306:3306 --env MYSQL_USER=petclinic --env MYSQL_ROOT_PASSWORD=1234567890 --env MYSQL_DATABASE=petclinic --env MYSQL_PASSWORD=1234567890 --net mynet12 --ip 18.169.237.3 -d mysql:8.4.3
+  #         docker images -a
+  #         docker ps       
 
-  run_apprun_image:
-    needs: run_dbimage
-    name: Run petclinic_app_run Image
-    runs-on: [self-hosted, linux, x64]
-    steps: 
-      - name: Sleep for 0,5 minutes
-        run: sleep 30s
-        shell: bash
+  # run_apprun_image:
+  #   needs: run_dbimage
+  #   name: Run petclinic_app_run Image
+  #   runs-on: [self-hosted, linux, x64]
+  #   steps: 
+  #     - name: Sleep for 0,5 minutes
+  #       run: sleep 30s
+  #       shell: bash
 
-      - name: Run image
-        run: |
-          sudo chmod 777 /var/run/docker.sock
-          docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=18.169.237.3 --env MYSQL_PORT=3306:3306 --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/petclinic --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v1.5
-          docker images -a
-          docker ps
+  #     - name: Run image
+  #       run: |
+  #         sudo chmod 777 /var/run/docker.sock
+  #         docker run --net mynet12 --name petclinic_app -p 8080:8080 --env MYSQL_HOST=18.169.237.3 --env MYSQL_PORT=3306:3306 --env MYSQL_URL=jdbc:mysql://18.169.237.3:3306/petclinic --env MYSQL_DATABASE=petclinic --env MYSQL_USER=petclinic --env MYSQL_PASSWORD=1234567890 -d anutkarudeha/petclinic_app_run:v1.5
+  #         docker images -a
+  #         docker ps
 
 # docker stop petclinic_db
 # docker rm petclinic_db
