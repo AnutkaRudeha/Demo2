@@ -10,3 +10,5 @@ export JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
 
 cp /build_java_project/Demo/target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar /artifact
 
+
+ami-0bc8d5c547360e648
